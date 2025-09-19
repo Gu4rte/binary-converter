@@ -1,0 +1,63 @@
+import time
+
+def binary_text():
+    print("")
+    while True:
+        binary = input("Enter Binary Text: ")
+        if all(char in "01 " for char in binary):
+            break
+        else:
+            print("Invalid Input, only 1s and 0s are allowed")
+    print("1st Step - Original Binary:",binary)
+    time.sleep(1)
+    separate = binary.split()
+    print("2nd Step - Split Binary:",separate)
+    time.sleep(1)
+    decimal = [int(b,2) for b in separate]
+    print("3rd Step - Decimal:",decimal)
+    time.sleep(1)
+    letter = [chr(d) for d in decimal]
+    print("4th Step - Letter:",letter)
+    time.sleep(1)
+    result = "".join(letter)
+    print("5th Step - Result:",result)
+    return
+
+def text_binary():
+    print("")
+    text = input("Enter Text: ")
+    print("1st Step - Original Text:",text)
+    time.sleep(1)
+    text_split = list(text)
+    print("2nd Step - Split Text:",text_split)
+    time.sleep(1)
+    decimal = [ord(letter) for letter in text_split]
+    print("3rd Step - Decimal:",decimal)
+    time.sleep(1)
+    binary = [bin(d)[2:].zfill(8) for d in decimal]
+    print("4th Step - Binary Text:",binary)
+    time.sleep(1)
+    result = " ".join(binary)
+    print("5th Step - Result:",result)
+    return
+
+if __name__ == '__main__':
+    while True:
+        print("--- Binary Converter V1 ---")
+        print("1) Binary to Text")
+        print("2) Text to Binary")
+        print("3) Exit")
+        option = input(">>>")
+        if option == "1":
+            binary_text()
+            input("Press Enter to continue...\n")
+            pass
+        elif option == "2":
+            text_binary()
+            input("Press Enter to continue...\n")
+            pass
+        elif option == "3":
+            exit()
+        else:
+            print("Option not recognized")
+            print("")
